@@ -25,8 +25,15 @@ export default function useOrder() {
     // console.log("order", order);
   };
 
+  const deleteItem = (item: MenuItem) => {
+    setOrder((prevOrder) => prevOrder.filter((it) => it.id !== item.id));
+
+    // console.log("order", order);
+  };
+
   return {
     order,
     addItem,
+    deleteItem,
   };
 }

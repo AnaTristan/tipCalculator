@@ -4,7 +4,7 @@ import MenuItem from "./components/MenuItem";
 import OrderContents from "./components/OrderContents";
 
 function App() {
-  const { order,addItem } = useOrder();
+  const { order, addItem, deleteItem } = useOrder();
 
   return (
     <>
@@ -26,9 +26,7 @@ function App() {
         </div>
 
         <div className="p-5 border border-dashed border-slate-300 rounded-lg space-y-10">
-
-          <OrderContents order={order}/>
-          
+          <OrderContents order={order} deleteItem={deleteItem} />
         </div>
       </main>
     </>
