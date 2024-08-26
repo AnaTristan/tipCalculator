@@ -35,10 +35,10 @@ function App() {
           {state.order.length > 0 ? (
             <>
               <OrderContents state={state} dispatch={dispatch} />
-              <TipPercentForm setTip={setTip} tip={tip} />
+              <TipPercentForm dispatch={dispatch} tip={state.tip} />
               <OrderTotals
                 order={state.order}
-                tip={tip}
+                tip={state.tip}
                 placeOrder={placeOrder}
               />
             </>
