@@ -8,7 +8,7 @@ import TipPercentForm from "./components/TipPercentForm";
 import { InitialState, orderReducer } from "./reducers/orderReducer";
 
 function App() {
-  const { order, tip, setTip, addItem, deleteItem, placeOrder } = useOrder();
+  const { order, tip, setTip, deleteItem, placeOrder } = useOrder();
 
   const [state, dispatch] = useReducer(orderReducer, InitialState);
 
@@ -26,7 +26,7 @@ function App() {
 
           <div className="space-y-3 mt-6">
             {menuItems.map((item) => (
-              <MenuItem key={item.id} item={item} addItem={addItem} />
+              <MenuItem key={item.id} item={item} dispatch={dispatch} />
             ))}
           </div>
         </div>
