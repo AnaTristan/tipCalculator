@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { MenuItem, orderItem } from "../types";
 
 // Acciones de reducer
@@ -61,6 +60,8 @@ export const orderReducer = (
   if (action.type === "place-order") {
     return {
       ...state,
+      order: [],
+      tip: 0,
     };
   }
 
