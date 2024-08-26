@@ -1,18 +1,19 @@
 import { formatCurrency } from "../helpers";
+import { orderState } from "../reducers/orderReducer";
 import { MenuItem, orderItem } from "../types";
 
 type OrderContentprops = {
-  order: orderItem[];
   deleteItem: (item: MenuItem) => void;
+  state: orderState;
 };
 
-const OrderContents = ({ order, deleteItem }: OrderContentprops) => {
+const OrderContents = ({  deleteItem, state }: OrderContentprops) => {
   return (
     <div>
       <h2 className="text-center text-4xl font-black ">Consumo</h2>
 
       <div className="space-y-3 mt-6">
-        {order.map((item) => (
+        {state.order.map((item) => (
           <div
             key={item.id}
             className="flex justify-between border-t border-gray-200 py-5 last-of-type:border-b items-center"

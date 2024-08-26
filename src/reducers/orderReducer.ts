@@ -9,7 +9,7 @@ export type orderActions =
 
 // Definicion de estado inicial
 
-type orderState = {
+export type orderState = {
   order: orderItem[];
   tip: number;
 };
