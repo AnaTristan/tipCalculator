@@ -3,7 +3,7 @@ import { MenuItem, orderItem } from "../types";
 // Acciones de reducer
 export type orderActions =
   | { type: "add-item"; payload: { item: MenuItem } }
-  | { type: "delete-item"; payload: { item: MenuItem } }
+  | { type: "delete-item"; payload: { id: MenuItem["id"] } }
   | { type: "place-order" }
   | { type: "add-tip"; payload: { value: number } };
 
@@ -50,8 +50,10 @@ export const orderReducer = (
   }
 
   if (action.type === "delete-item") {
+    let order = state.order.filter((item) => item.id !== action.payload.id);
     return {
       ...state,
+      order,
     };
   }
 

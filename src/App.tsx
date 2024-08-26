@@ -8,7 +8,7 @@ import TipPercentForm from "./components/TipPercentForm";
 import { InitialState, orderReducer } from "./reducers/orderReducer";
 
 function App() {
-  const { order, tip, setTip, deleteItem, placeOrder } = useOrder();
+  const { tip, setTip, placeOrder } = useOrder();
 
   const [state, dispatch] = useReducer(orderReducer, InitialState);
 
@@ -34,9 +34,13 @@ function App() {
         <div className="p-5 border border-dashed border-slate-300 rounded-lg space-y-10">
           {state.order.length > 0 ? (
             <>
-              <OrderContents deleteItem={deleteItem} state={state} />
+              <OrderContents state={state} dispatch={dispatch} />
               <TipPercentForm setTip={setTip} tip={tip} />
-              <OrderTotals order={order} tip={tip} placeOrder={placeOrder} />
+              <OrderTotals
+                order={state.order}
+                tip={tip}
+                placeOrder={placeOrder}
+              />
             </>
           ) : (
             <p className="text-center">La orden esta vacia</p>
